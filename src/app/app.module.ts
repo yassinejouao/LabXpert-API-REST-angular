@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './userlab/create/create.component';
 import { IndexComponent } from './userlab/index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import  { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { BackdropComponent } from './backdrop/backdrop.component';
+import { UpdateComponent } from './userlab/update/update.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,15 @@ import  { HttpClientModule } from '@angular/common/http'
     CreateComponent,
     IndexComponent,
     DashboardComponent,
+    BackdropComponent,
+    UpdateComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule , HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

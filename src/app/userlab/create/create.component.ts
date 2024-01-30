@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserlabService } from 'src/app/services/userlab.service';
 
 @Component({
   selector: 'app-create',
@@ -8,22 +9,35 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
-  constructor() {}
+  loading = false;
+  constructor(private userlabService: UserlabService) {}
 
   // on init
   ngOnInit(): void {
     this.createForm = new FormGroup({
       name: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', Validators.required),
-      option: new FormControl('', Validators.required),
-      selectone: new FormControl('', Validators.required),
+      information: new FormControl('', [Validators.required]),
+      userRole: new FormControl('', Validators.required),
+      status: new FormControl('', Validators.required),
     });
   }
   // to submit form
-  onSubmit() {
+  onSubmit(): void {
     if (this.createForm.valid) {
-      console.log(this.createForm.value);
+      this.loading = true;
+      const data = this.createForm.value;
+      this.userlabService.create(data).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.createForm.reset();
+        },
+        error: (e) => {
+          console.error(e);
+        },
+        complete: () => {
+          this.loading = false;
+        },
+      });
     }
   }
 }
