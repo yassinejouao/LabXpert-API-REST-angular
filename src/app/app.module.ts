@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './userlab/create/create.component';
 import { IndexComponent } from './userlab/index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import  { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     IndexComponent,
     DashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule , HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
