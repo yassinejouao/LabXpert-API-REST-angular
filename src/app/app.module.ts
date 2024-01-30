@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BackdropComponent } from './backdrop/backdrop.component';
 import { UpdateComponent } from './userlab/update/update.component';
 
+import { CreateComponent as CreateCFournisseur } from './fournisseur/create/create.component';
+import { IndexComponent as IndexCFournisseur } from './fournisseur/index/index.component';
+import { UpdateComponent as UpdateCFournisseur } from './fournisseur/update/update.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +23,9 @@ import { UpdateComponent } from './userlab/update/update.component';
     DashboardComponent,
     BackdropComponent,
     UpdateComponent,
+    CreateCFournisseur,
+    IndexCFournisseur,
+    UpdateCFournisseur,
   ],
   imports: [
     BrowserModule,

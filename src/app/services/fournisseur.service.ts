@@ -1,26 +1,37 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Fournisseur } from '../models/fournisseur.model';
+//const baseUrl = 'http://localhost:808ng0/user';
+const baseUrl = 'http://localhost:8080/fournisseur';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FournisseurService {
-  
-  private readonly apiUrl = 'any';
-
-  constructor(private http: HttpClient) { }
-
-  server$ = this.http.get<CustumResponse>(${this.apiUrl}/fournisseur/all)
-  .pipe(
-    tap(console.log),
-    catchError(this.handleError)
-  );
-
-  handleError(handleError: any): Observable<never> {
-   return throwError ('Method not implemented.');
+  constructor(private http: HttpClient) {}
+  // to get all Fournisseur
+  getAll(): Observable<Fournisseur[]> {
+    return this.http.get<Fournisseur[]>(`${baseUrl}/all`);
   }
-
+  // to create Fournisseur
+  create(data: Fournisseur): Observable<Fournisseur> {
+    return this.http.post(`${baseUrl}/save`, data);
+  }
+  // to get one Fournisseur by id
+  getById(id: any): Observable<Fournisseur> {
+    return this.http.get<Fournisseur>(`${baseUrl}/${id}`);
+  }
+  // update Fournisseur
+  update(id: any, data: any): Observable<Fournisseur> {
+    return this.http.post<Fournisseur>(`${baseUrl}/update/${id}`, data);
+  }
+  // enable Fournisseur
+  //enable(id: any): Observable<any> {
+  //  return this.http.get<any>(`${baseUrl}/enable/${id}`);
+  //}
+  // disable Fournisseur
+  //disable(id: any): Observable<any> {
+   // return this.http.get<any>(`${baseUrl}/disable/${id}`);
+  //}
 }

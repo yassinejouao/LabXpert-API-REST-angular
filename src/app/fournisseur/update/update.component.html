@@ -15,10 +15,12 @@
     <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
       <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-5 lg:p-12">
         <form
-          [formGroup]="createForm"
-          class="space-y-4"
+          *ngIf="updateForm"
+          [formGroup]="updateForm"
           (ngSubmit)="onSubmit()"
+          class="space-y-4"
         >
+          <input type="hidden" formControlName="id" />
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-900"
@@ -78,6 +80,7 @@
           <div class="mt-4">
             <button
               type="submit"
+              [disabled]="updateForm.invalid || viewMode"
               class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto disabled:opacity-50"
             >
               Save
