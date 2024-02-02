@@ -11,9 +11,17 @@ import { CreatesampleComponent as CreateCsample } from './sample/createsample/cr
 import { IndexComponent as indexCAnalysis } from './analysis/index/index.component';
 import { ShowresultComponent } from './analysis/showresult/showresult.component';
 import { UpdateresultComponent } from './analysis/updateresult/updateresult.component';
+
+import { CreateComponent as CreateCFournisseur } from './fournisseur/create/create.component';
+import { IndexComponent as IndexCFournisseur } from './fournisseur/index/index.component';
+import { UpdateComponent as UpdateCFournisseur } from './fournisseur/update/update.component';
+
+import { CreateComponent as CreateCReagent } from './reagent/create/create.component';
+import { IndexComponent as IndexCReagent } from './reagent/index/index.component';
+import { UpdateComponent as UpdateCReagent } from './reagent/update/update.component';
+import { CreateComponent as createCanalysis } from './analysis/create/create.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'userlab', redirectTo: 'post/index', pathMatch: 'full' },
   { path: 'userlab/index', component: indexCUser },
   { path: 'userlab/create', component: createCUser },
   { path: 'userlab/update/:id', component: updateCUser },
@@ -23,6 +31,16 @@ const routes: Routes = [
   { path: 'sample/create', component: CreateCsample },
   { path: 'analysis/index', component: indexCAnalysis },
   { path: 'analysis/result/:id', component: ShowresultComponent },
+  { path: 'analysis/update/:id', component: UpdateresultComponent },
+  { path: 'analysis/create', component: createCanalysis },
+  //fournisseur:
+  { path: 'fournisseur/index', component: IndexCFournisseur },
+  { path: 'fournisseur/create', component: CreateCFournisseur },
+  { path: 'fournisseur/update/:id', component: UpdateCFournisseur },
+  //reagent:
+  { path: 'reagent/index', component: IndexCReagent },
+  { path: 'reagent/create', component: CreateCReagent },
+  { path: 'reagent/update/:id', component: UpdateCReagent },
 ];
 
 @NgModule({

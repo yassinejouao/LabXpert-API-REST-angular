@@ -12,4 +12,7 @@ export class SampleService {
   create(data: Sample): Observable<Sample> {
     return this.http.post(`${baseUrl}/add`, data);
   }
+  getByPatientId(id: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/patient/${id}`);
+  }
 }

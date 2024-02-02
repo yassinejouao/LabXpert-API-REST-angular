@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,17 @@ import { BackdropComponent } from './backdrop/backdrop.component';
 import { IndexComponent as indexCAnalysis } from './analysis/index/index.component';
 import { ShowresultComponent } from './analysis/showresult/showresult.component';
 import { UpdateresultComponent } from './analysis/updateresult/updateresult.component';
+import { UpdateComponent } from './fournisseur/update/update.component';
+import { IndexComponent } from './reagent/index/index.component';
+import { CreateComponent } from './reagent/create/create.component';
+import { CreateComponent as CreateCFournisseur } from './fournisseur/create/create.component';
+import { IndexComponent as IndexCFournisseur } from './fournisseur/index/index.component';
+import { UpdateComponent as UpdateCFournisseur } from './fournisseur/update/update.component';
+import { CreateComponent as createCanalysis } from './analysis/create/create.component';
+
+import { CreateComponent as CreateCReagent } from './reagent/create/create.component';
+import { IndexComponent as IndexCReagent } from './reagent/index/index.component';
+import { UpdateComponent as UpdateCReagent } from './reagent/update/update.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +45,16 @@ import { UpdateresultComponent } from './analysis/updateresult/updateresult.comp
     indexCAnalysis,
     ShowresultComponent,
     UpdateresultComponent,
+    UpdateComponent,
+    IndexComponent,
+    CreateComponent,
+    CreateCFournisseur,
+    IndexCFournisseur,
+    UpdateCFournisseur,
+    CreateCReagent,
+    IndexCReagent,
+    UpdateCReagent,
+    createCanalysis,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +62,7 @@ import { UpdateresultComponent } from './analysis/updateresult/updateresult.comp
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
