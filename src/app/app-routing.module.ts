@@ -9,6 +9,10 @@ import { CreateComponent as CreateCFournisseur } from './fournisseur/create/crea
 import { IndexComponent as IndexCFournisseur } from './fournisseur/index/index.component';
 import { UpdateComponent as UpdateCFournisseur } from './fournisseur/update/update.component';
 
+import { CreateComponent as CreateCReagent } from './reagent/create/create.component';
+import { IndexComponent as IndexCReagent } from './reagent/index/index.component';
+import { UpdateComponent as UpdateCReagent } from './reagent/update/update.component';
+
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'userlab', redirectTo: 'post/index', pathMatch: 'full' },
@@ -20,6 +24,11 @@ const routes: Routes = [
   { path: 'fournisseur/index', component: IndexCFournisseur },
   { path: 'fournisseur/create', component: CreateCFournisseur },
   { path: 'fournisseur/update/:id', component: UpdateCFournisseur },
+  //reagent:
+  { path: 'reagent', redirectTo: 'post/index', pathMatch: 'full' },
+  { path: 'reagent/index', component: IndexCReagent },
+  { path: 'reagent/create', component: CreateCReagent },
+  { path: 'reagent/update/:id', component: UpdateCReagent },
 ];
 
 @NgModule({

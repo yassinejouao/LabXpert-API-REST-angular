@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Fournisseur } from '../models/fournisseur.model';
-//const baseUrl = 'http://localhost:808ng0/user';
 const baseUrl = 'http://localhost:8080/fournisseur';
 
 @Injectable({
