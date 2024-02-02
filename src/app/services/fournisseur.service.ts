@@ -25,12 +25,5 @@ export class FournisseurService {
   update(id: any, data: any): Observable<Fournisseur> {
     return this.http.post<Fournisseur>(`${baseUrl}/update/${id}`, data);
   }
-  // enable Fournisseur
-  //enable(id: any): Observable<any> {
-  //  return this.http.get<any>(`${baseUrl}/enable/${id}`);
-  //}
-  // disable Fournisseur
-  //disable(id: any): Observable<any> {
-   // return this.http.get<any>(`${baseUrl}/disable/${id}`);
-  //}
+
 }

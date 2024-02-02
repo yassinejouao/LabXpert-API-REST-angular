@@ -46,36 +46,33 @@ import { DatePipe } from '@angular/common';
         price : new FormControl('',Validators.required),
         quantite: [1, [Validators.required, Validators.min(1)]],
         dateExpiration: ['', Validators.required]
-      });
-    }
-    onSubmit(){
-      const formData = this.reactifForm.value;
-      const dateTimeExpirationValue = this.datePipe.transform(formData.dateExpiration, 'yyyy-MM-ddTHH:mm:ss');
-      const fournisseurIdFournisseurValue = parseInt(formData.fournisseurIdFournisseur);
-      console.log(dateTimeExpirationValue, fournisseurIdFournisseurValue);
-  
-      const modifiedFormData = {
-        nom: formData.nom,
-        description: formData.description,
-        fournisseurIdFournisseur: fournisseurIdFournisseurValue,
-        quantite: formData.quantite,
-        dateExpiration: dateTimeExpirationValue
-      };
-      this.reactifService.create(modifiedFormData).subscribe(
-        (response) => {
-          console.log("Données du réactif envoyées avec succès", response);
-          this.router.navigate(['reactif/all']);
-        },
-        (error) => {
-          console.log(error.message);
-          if (error.status === 400) {
-            const errorMessage = error.error.message;
-            console.log("Message d'erreur :", errorMessage);
-    
-            this.errorMessage = errorMessage;}
-        }
-      );
-  
-    }
+      });}
+      onSubmit() {
+        const formData = this.reactifForm.value;
+        const dateTimeExpirationValue = this.datePipe.transform(formData.dateExpiration, 'yyyy-MM-ddTHH');
+        const fournisseurIdFournisseurValue = parseInt(formData.fournisseurIdFournisseur);
+      
+        const modifiedFormData = {
+          nom: formData.nom,
+          description: formData.description,
+          fournisseurIdFournisseur: fournisseurIdFournisseurValue,
+          quantite: formData.quantite,
+          dateExpiration: dateTimeExpirationValue
+        };
+      
+        this.reactifService.create(modifiedFormData).subscribe(
+          (response) => {
+            console.log("Données du réactif envoyées avec succès", response);
+            this.router.navigate(['reactif/all']);
+          },
+          (error) => {
+            if (error.status === 400) {
+              const errorMessage = error.error.message;
+              console.log("Message d'erreur :", errorMessage);
+              this.errorMessage = errorMessage;
+            }
+          }
+        );
+      }
   
   }
