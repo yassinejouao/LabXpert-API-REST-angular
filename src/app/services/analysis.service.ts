@@ -19,4 +19,7 @@ export class AnalysisService {
   setTest(idtest: any, value: any): Observable<any> {
     return this.http.get<any>(`${testbaseUrl}/${idtest}/${value}`);
   }
+  create(data: any): Observable<any> {
+    return this.http.post<any>(`${baseUrl}/add`, data);
+  }
 }

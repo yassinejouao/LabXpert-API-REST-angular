@@ -9,25 +9,26 @@
     </div>
   </div>
 </header>
-<!-- <app-backdrop [show]="loading"></app-backdrop> -->
+<app-backdrop [show]="loading"></app-backdrop>
 <section class="bg-gray-100 flex justify-center">
   <div class="w-full mx-10 py-5 sm:px-1 lg:px-1">
     <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
       <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-5 lg:p-12">
-        <form [formGroup]="createForm" class="space-y-4">
+        <form [formGroup]="createForm" class="space-y-4" (submit)="onSubmit()">
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label
-                for="idPatient"
+                for="IdPatient"
                 class="block text-sm font-medium text-gray-900"
               >
                 Patient :
               </label>
 
               <select
-                name="idPatient"
-                id="idPatient"
-                formControlName="idPatient"
+                (change)="onPatientChange($event)"
+                name="IdPatient"
+                id="IdPatient"
+                formControlName="IdPatient"
                 class="w-full h-[47px] rounded-lg border border-gray-300 text-gray-700 text-sm"
               >
                 <option value="">Please select</option>
@@ -40,16 +41,16 @@
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label
-                for="idSample"
+                for="IdSample"
                 class="block text-sm font-medium text-gray-900"
               >
                 Sample :
               </label>
 
               <select
-                name="idSample"
-                id="idSample"
-                formControlName="idSample"
+                name="IdSample"
+                id="IdSample"
+                formControlName="IdSample"
                 class="w-full h-[47px] rounded-lg border border-gray-300 text-gray-700 text-sm"
               >
                 <option value="">Please select</option>
